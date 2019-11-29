@@ -1,4 +1,5 @@
-import Vue from 'vue'
+import Vue from 'vue/dist/vue.js';
+require('./test.css');
 let tree = {
     label: 'root',
     nodes: [
@@ -59,3 +60,5 @@ let tree = {
       tree
     }
   })
+
+  

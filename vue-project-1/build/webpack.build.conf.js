@@ -6,7 +6,7 @@ var path = require('path')
 var projectRoot = path.resolve(__dirname, '../')
 
 module.exports = merge(baseConfig, {
-  entry: './src/index.js',
+  entry: './dev/test.js',
   output: {
     path: path.resolve(projectRoot, 'dist'),
     filename: 'vue-tree-list.min.js',

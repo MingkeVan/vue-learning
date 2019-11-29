@@ -1,19 +1,27 @@
 <template>
-   <div class="tree-menu">
-      <div class="label-wrapper" @click="toggleChildren">
-        <div :style="indent" :class="labelClasses">
-          <i v-if="nodes" class="fa" :class="iconClasses"></i>
-          {{ label }}
-        </div>
-      </div>
-      <tree-menu 
-        v-if="showChildren"
-        v-for="node in nodes" 
-        :nodes="node.nodes" 
-        :label="node.label"
-        :depth="depth + 1"   
-      >
-      </tree-menu>
+    <div>
+        <button @click="addNode">Add Node</button>
+        <vue-tree-list
+          @click="onClick"
+          @change-name="onChangeName"
+          @delete-node="onDel"
+          @add-node="onAddNode"
+          @drop="drop"
+          @drop-before="dropBefore"
+          @drop-after="dropAfter"
+          :model="data"
+          default-tree-node-name="new node"
+          default-leaf-node-name="new leaf"
+          v-bind:default-expanded="false">
+          <span class="icon" slot="addTreeNode">addTreeNode</span>
+          <span class="icon" slot="addLeafNode">addLeafNode</span>
+          <span class="icon" slot="editNode">editNode</span>
+          <span class="icon" slot="delNode">delNode</span>
+        </vue-tree-list>
+        <button @click="getNewTree">Get new tree</button>
+        <pre>
+          {{newTree}}
+        </pre>
     </div>
 </template>
 <script>

@@ -2,6 +2,7 @@ var webpack = require('webpack')
 var merge = require('webpack-merge')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var baseConfig = require('./webpack.base.conf')
+const path = require('path');
 
 module.exports = merge(baseConfig, {
   entry: './dev/test.js',
@@ -12,12 +13,6 @@ module.exports = merge(baseConfig, {
     open: true,
     hot: true,
     inline: true
-  },
-  resolve: {
-    extensions: ['.js', '.vue'],
-    alias: {
-      'vue$': 'vue/dist/vue.common.js'
-    }
   },
   devtool: '#eval-source-map',
   plugins: [
