@@ -2,7 +2,6 @@ var webpack = require('webpack')
 var merge = require('webpack-merge')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var baseConfig = require('./webpack.base.conf')
-const path = require('path');
 
 module.exports = merge(baseConfig, {
   entry: './dev/test.js',
